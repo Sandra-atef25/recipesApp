@@ -12,6 +12,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { DropdownDirective } from './shared/dropdown.directive';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
+import { RecipesServices } from './recipes/recipes.service';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.compon
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-
+  providers:[RecipesServices]
 })
 
 export class AppComponent {
