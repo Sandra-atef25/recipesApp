@@ -13,6 +13,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 import { RecipesServices } from './recipes/recipes.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ShoppingListService } from './shopping-list/shoppingList.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +35,12 @@ import { RecipesServices } from './recipes/recipes.service';
     FormsModule,
     CommonModule,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers:[RecipesServices]
+  providers:[RecipesServices,DataStorageService]
 })
 
 export class AppComponent {

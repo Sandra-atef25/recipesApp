@@ -8,16 +8,17 @@ export class RecipesServices {
     //to inform the component that a recipe was selected 
     recipesChanged=new Subject<Recipe[]>();
     //recipeSelected=new Subject<Recipe>();
-    private recipes: Recipe[] = [
-        new Recipe("Recipe1", "this a test", "https://bing.com/th?id=OSK.90f427f416d4fbc45bb26bca7c908784", [new Ingredient('meat', 1), new Ingredient('frensh', 20)]),
-        new Recipe('Big Fat Burger',
-            'What else you need to say?',
-            'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
-            [
-                new Ingredient('Buns', 2),
-                new Ingredient('Meat', 1)
-            ])
-    ];
+    // private recipes: Recipe[] = [
+    //     new Recipe("Recipe1", "this a test", "https://bing.com/th?id=OSK.90f427f416d4fbc45bb26bca7c908784", [new Ingredient('meat', 1), new Ingredient('frensh', 20)]),
+    //     new Recipe('Big Fat Burger',
+    //         'What else you need to say?',
+    //         'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+    //         [
+    //             new Ingredient('Buns', 2),
+    //             new Ingredient('Meat', 1)
+    //         ])
+    // ];
+    private recipes:Recipe[]=[];
     constructor(private slService: ShoppingListService) {
 
     }
@@ -42,6 +43,10 @@ export class RecipesServices {
     }
     deleteRecipe(index:number){
         this.recipes.splice(index,1);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+    setRevipes(recipes:Recipe[]){
+        this.recipes=recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
 }
