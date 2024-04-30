@@ -9,10 +9,9 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [RecipeDetailComponent,RecipeListComponent,CommonModule,RouterOutlet],
+  imports: [CommonModule,RouterOutlet,RecipeListComponent],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css',
- // providers:[RecipesServices]
 })
 
 export class RecipesComponent implements OnInit{
